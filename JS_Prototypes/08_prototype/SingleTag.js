@@ -1,12 +1,12 @@
 ﻿// BEGIN (write your solution here)
 import Node from './Node';
-function toString() {
-  return `<${this.name}${this.getAttributesAsLine()}>`;
+export default function SingleTag(name, attributes = {}) {
+  Node.apply(this, [name, attributes]);
+
+  return this;
 }
 
-export default function SingleTag(name, attributes = {}) {
-  const objSingleTag = new Node(name, attributes);
-  objSingleTag.toString = toString;
-  return objSingleTag;
-}
+SingleTag.prototype.toString = function toString() {
+  return `<${this.name}${this.getAttributesAsLine()}>`;
+};
 // END
