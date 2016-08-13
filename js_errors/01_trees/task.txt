@@ -1,0 +1,22 @@
+﻿solution.js
+Реализуйте недостающие части интерфейса типа Tree.
+
+hasChild
+getParent()
+removeChild(key)
+hasChildren()
+getDeepChild(keys)
+getChildren()
+tree = new Tree('/');
+tree.addChild('var')
+  .addChild('lib')
+  .addChild('run');
+tree.addChild('etc');
+tree.addChild('home');
+
+// example: getDeepChild
+const subtree = tree.getDeepChild(['var', 'lib']);
+subtree.getkey(); // lib
+
+const parent = subtree.getParent();
+parent.getkey(); // var
