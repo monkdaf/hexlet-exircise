@@ -26,7 +26,31 @@
   }
 
   // BEGIN (write your solution here)
-  
+  hasChild(key) {
+    return this.getChild(key) !== undefined;
+  }
+
+  getParent() {
+    return this.parent;
+  }
+
+  removeChild(key) {
+    return this.children.delete(key);
+  }
+
+  hasChildren() {
+    return this.children.size > 0;
+  }
+
+  getDeepChild(keys) {
+    return keys.reduce((node, key) => node && node.getChild(key), this);
+  }
+
+  getChildren() {
+    const arr = [];
+    this.children.forEach(elem => arr.push(elem));
+    return arr;
+  }
   // END
 }
 
