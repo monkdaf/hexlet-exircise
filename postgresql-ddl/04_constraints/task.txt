@@ -1,0 +1,3 @@
+﻿solution.sql
+Выполните в psql запрос, который создает таблицу cars с полями id (primary key), name (unique, not null), price (numeric) и created_at (not null). Типы столбцов нужно выбрать самостоятельно.
+Напишите запрос в файл solution.sql.
