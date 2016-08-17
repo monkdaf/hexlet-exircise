@@ -1,0 +1,3 @@
+﻿solution.sql
+Добавьте в таблицу cars две записи: (1, nissan, 1.12) и (10, kia, null).
+Напишите запросы в файл solution.sql.
