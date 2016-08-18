@@ -1,0 +1,7 @@
+﻿solution.sql
+Напишите запрос который изменит таблицу products так как описано ниже:
+
+Поле name должно стать not null, unique и иметь тип character varying;
+Добавьте поле amount типа integer;
+Удалите default у поля price;
+Запишите изменения в файл solution.sql
