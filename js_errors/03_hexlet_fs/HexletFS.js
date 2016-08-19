@@ -11,25 +11,31 @@ export default class {
 
   // BEGIN (write your solution here)
   isDirectory(path) {
-    const child =this.tree.getDeepChild(normalizePath(path));
-    return child === undefined ? false : child.getMeta().type !== 'dir' ? false : true;
+    const child = this.tree.getDeepChild(normalizePath(path));
+    if (child !== undefined && child.getMeta().type === 'dir') {
+      return true;
+    }
+    return false;
   }
 
   isFile(path) {
-    const child =this.tree.getDeepChild(normalizePath(path));
-    return child === undefined ? false : child.getMeta().type !== 'file' ? false : true;
+    const child = this.tree.getDeepChild(normalizePath(path));
+    if (child !== undefined && child.getMeta().type === 'file') {
+      return true;
+    }
+    return false;
   }
 
   mkdirSync(path) {
-    let arrPath = normalizePath(path);
+    const arrPath = normalizePath(path);
     const newDirectory = arrPath.pop();
-    this.tree.getDeepChild(arrPath).addChild(newDirectory, {type: 'dir'});
+    this.tree.getDeepChild(arrPath).addChild(newDirectory, { type: 'dir' });
   }
 
   touchSync(path) {
-    let arrPath = normalizePath(path);
+    const arrPath = normalizePath(path);
     const newFile = arrPath.pop();
-    this.tree.getDeepChild(arrPath).addChild(newFile, {type: 'file'});
+    this.tree.getDeepChild(arrPath).addChild(newFile, { type: 'file' });
   }
   // END
 }
