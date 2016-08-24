@@ -4,7 +4,7 @@ class Stats {
     this.type = type;
   }
 
-  isFile(){
+  isFile() {
     return this.type === 'file';
   }
 

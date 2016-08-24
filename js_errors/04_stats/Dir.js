@@ -3,14 +3,14 @@
 // BEGIN (write your solution here)
 class Dir extends Node {
   constructor(path) {
-    super(path, {type: 'dir'});
+    super(path, { type: 'dir' });
   }
 
-  isFile(path){
+  isFile() {
     return this.getStats().isFile();
   }
 
-  isDirectory(path) {
+  isDirectory() {
     return this.getStats().isDirectory();
   }
 }
