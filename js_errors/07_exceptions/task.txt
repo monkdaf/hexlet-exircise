@@ -1,0 +1,12 @@
+﻿Задание
+HexletFs.js
+Реализуйте следующие возможности файловой системы HexletFs:
+
+copySync(src, dest)
+ENOENT		no such file or directory
+ENOTDIR		not a directory
+ENOTEMPTY	directory not empty
+
+От меня:
+EISDIR		illegal operation on a directory
+EEXIST		file already exists

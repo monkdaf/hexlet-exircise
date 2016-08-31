@@ -1,0 +1,21 @@
+﻿Задание
+
+Ошибок, связанных с файловой системой, очень много, и для их ручной генерации существуют удобные библиотеки. Например, errno. Пример использования:
+
+import errors from 'errno';
+errors.code.ENOTEMPTY
+// → {
+//     "errno": 53,
+//     "code": "ENOTEMPTY",
+//     "description": "directory not empty"
+//   }
+
+Список ошибок можно подсмотреть тут: https://github.com/rvagg/node-errno/blob/master/errno.js
+HexletFs.js
+
+Реализуйте следующие возможности файловой системы HexletFs:
+
+    unlinkSync(path)
+    writeFileSync(path)
+    readFileSync(path)
+
