@@ -30,32 +30,21 @@ export default class {
 
   // BEGIN (write your solution here)
   mkdirpSync(path) {
-    const parts = getPathParts(path);
-    const arrFullPath = [];
-    let err = false;
-    
-    parts.reduce((accPath, part) => {
-      if (err) {
-        return '';
+    return getPathParts(path).reduce((accTree, part) => {
+      if (!accTree) {
+        return false;
       }
-      const newAcc = `${accPath}/${part}`;
-      const child = this.tree.getDeepChild(getPathParts(newAcc));
-      
+      const child = accTree.getChild(part);
       if (!child) {
-        arrFullPath.push(newAcc);
-      } else if (child.getMeta().getStats().isFile()) {
-        err = true;
+        return accTree.addChild(part, new Dir(part));
       }
-      return newAcc;
-    });
-
-    if (err) {
-      return false;
-    }
-
-    return arrFullPath.reduce((acc, fullPath) => this.mkdirSync(fullPath), this);
+      if (!child.getMeta().getStats().isDirectory()) {
+        return false;
+      }
+      return child;
+    }, this.tree);
   }
-
+  
   touchSync(path) {
     const parts = getPathParts(path);
     const name = parts[parts.length - 1];
@@ -65,7 +54,7 @@ export default class {
     }
     return parent.addChild(name, new File(name));
   }
-  
+
   readdirSync(path) {
     const child = this.tree.getDeepChild(getPathParts(path));
     if (!child || child.getMeta().getStats().isFile()) {
@@ -73,14 +62,14 @@ export default class {
     }
     return child.getChildren().map((elem) => elem.getMeta().getName());
   }
-  
+
   rmdirSync(path) {
     const parts = getPathParts(path);
     const child = this.tree.getDeepChild(parts);
     if (!child || child.getMeta().getStats().isFile() || child.hasChildren()) {
       return false;
     }
-    
+
     return child.parent.removeChild(child.key);
   }
   // END
