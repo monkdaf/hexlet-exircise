@@ -1,0 +1,22 @@
+﻿Палиндром — число, слово или текст, одинаково читающееся в обоих направлениях. Например: радар, топот.
+
+solution.js
+Реализуйте и экспортируйте по умолчанию функцию isPalindrome с использованием рекурсии.
+
+Примеры использования:
+
+import isPalindrome from './solution';
+
+isPalindrome('radar'); // true
+isPalindrome('a'); // true
+isPalindrome('abs'); // false
+Подсказки
+Используйте функцию length из модуля strings чтобы узнать длину строки:
+
+strings.length('hello'); // 5
+Используйте функцию charAt из модуля strings для получения символа по указанной позиции:
+
+strings.charAt('hello', 1); // "e"
+Используйте функцию substr из модуля strings чтобы получить подстроку из строки:
+
+strings.substr('hello', 0, 4); // "hell"
