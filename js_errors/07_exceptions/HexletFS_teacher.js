@@ -1,4 +1,4 @@
-﻿  // BEGIN
+﻿// BEGIN
   copySync(src, dest) {
     const srcParts = getPathParts(src);
     const node = this.tree.getDeepChild(srcParts);
@@ -17,7 +17,7 @@
     const destNode = this.tree.getDeepChild(destParts);
     if (destNode.getMeta().isDirectory()) {
       const name = node.getMeta().getName();
-      return destNode.addChild(name, new File(name, ''));
+      return destNode.addChild(name, new File(name, this.readFileSync(src)));
     }
     const name = destNode.getMeta().getName();
     return destParent.addChild(name, new File(name, ''));
